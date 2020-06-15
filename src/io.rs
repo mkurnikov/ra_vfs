@@ -18,7 +18,7 @@ pub(crate) enum Task {
 /// `TaskResult` transfers files read on the IO thread to the VFS on the main
 /// thread.
 #[derive(Debug)]
-pub(crate) enum TaskResult {
+pub enum TaskResult {
     /// Emitted when we've recursively scanned a source root during the initial
     /// load.
     BulkLoadRoot { root: VfsRoot, files: Vec<(RelativePathBuf, String, LineEndings)> },
