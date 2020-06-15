@@ -116,7 +116,7 @@ impl RootEntry {
 /// Calling code is expected to just pass `VfsTask` to `handle_task` method. It
 /// is exposed as a public API so that the caller can plug vfs events into the
 /// main event loop and be notified when changes happen.
-pub struct VfsTask(TaskResult);
+pub struct VfsTask(pub TaskResult);
 
 impl fmt::Debug for VfsTask {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
