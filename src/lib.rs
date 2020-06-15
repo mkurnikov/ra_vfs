@@ -338,7 +338,7 @@ impl Vfs {
     // *_event calls change the state of VFS and push a change onto pending
     // changes array.
 
-    fn add_file_event(
+    pub fn add_file_event(
         &mut self,
         root: VfsRoot,
         path: RelativePathBuf,
@@ -353,13 +353,13 @@ impl Vfs {
         Some(file)
     }
 
-    fn change_file_event(&mut self, file: VfsFile, text: String, is_overlay: bool) {
+    pub fn change_file_event(&mut self, file: VfsFile, text: String, is_overlay: bool) {
         let text = Arc::new(text);
         self.raw_change_file(file, text.clone(), is_overlay);
         self.pending_changes.push(VfsChange::ChangeFile { file, text });
     }
 
-    fn remove_file_event(&mut self, root: VfsRoot, path: RelativePathBuf, file: VfsFile) {
+    pub fn remove_file_event(&mut self, root: VfsRoot, path: RelativePathBuf, file: VfsFile) {
         self.raw_remove_file(file);
         self.pending_changes.push(VfsChange::RemoveFile { root, path, file });
     }
