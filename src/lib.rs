@@ -26,8 +26,9 @@ use std::{
 
 use rustc_hash::{FxHashMap, FxHashSet};
 
+pub use crate::io::TaskResult;
 use crate::{
-    io::{TaskResult, Worker},
+    io::{Worker},
     roots::{Roots, FileType},
 };
 
